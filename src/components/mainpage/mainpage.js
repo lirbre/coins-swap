@@ -1,48 +1,63 @@
 import React, { useState } from 'react';
-import './mainpage.scss';
+import './mainpage.scss';   
 
 // Form control
 import { useFormik } from "formik";
 
 // Material UI
 import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+
+// Icons
+import { AiOutlineArrowDown } from 'react-icons/ai'; 
+import { FaMoon } from "react-icons/fa"
+import { BsSunFill } from "react-icons/bs"
 
 const MainPage = () => {
-    const [darkTheme, setDarkTheme] = useState('default');
-    const [countFrom, setCountFrom] = useState(0);
-    const [countTo, setCountTo] = useState(0);
+    const [darkTheme, setDarkTheme] = useState({
+        theme: 'dark',
+        icon: 'moon'
+    });
     const [valueFrom, setValueFrom] = useState('');
     const [valueTo, setValueTo] = useState('');
 
     const handleTheme = () => {
-        darkTheme === 'default' ? setDarkTheme('dark') : setDarkTheme('default');
+        darkTheme.theme === 'dark' ? 
+        setDarkTheme({
+            theme: 'default',
+            icon: 'sun'
+        }) : setDarkTheme({
+            theme: 'dark',
+            icon: 'moon'
+        });
     }
 
     const handleChangeFrom = (e) => {
         let actualDigit = e.target.value.toString().split('');
 
-        if (actualDigit[actualDigit.length - 1] === ',' || actualDigit[actualDigit.length - 1] === '.') {
-            actualDigit[actualDigit.length - 1] = '.';
-            if (valueFrom == '') {
-                actualDigit[actualDigit.length - 1] = '0.';
-            }   
+        if (actualDigit.length <= 20) {
+            if (actualDigit[actualDigit.length - 1] === ',' || actualDigit[actualDigit.length - 1] === '.') {
+                actualDigit[actualDigit.length - 1] = '.';
+                if (valueFrom === '') {
+                    actualDigit[actualDigit.length - 1] = '0.';
+                }   
+            }
+            (actualDigit.filter(i => /[.,]/.test(i)).length <= 1) ? setValueFrom(actualDigit.join('')) : setValueFrom(valueFrom);
         }
-
-        (actualDigit.filter(i => /[.,]/.test(i)).length <= 1) ? setValueFrom(actualDigit.join('')) : setValueFrom(valueFrom);
     }
 
     const handleChangeTo = (e) => {
         let actualDigit = e.target.value.toString().split('');
 
-        if (actualDigit[actualDigit.length - 1] === ',' || actualDigit[actualDigit.length - 1] === '.') {
-            actualDigit[actualDigit.length - 1] = '.';
-            if (valueTo == '') {
-                actualDigit[actualDigit.length - 1] = '0.';
+        if (actualDigit.length <= 20) {
+            if (actualDigit[actualDigit.length - 1] === ',' || actualDigit[actualDigit.length - 1] === '.') {
+                actualDigit[actualDigit.length - 1] = '.';
+                if (valueTo === '') {
+                    actualDigit[actualDigit.length - 1] = '0.';
+                }
             }
+            (actualDigit.filter(i => /[.,]/.test(i)).length <= 1) ? setValueTo(actualDigit.join('')) : setValueTo(valueTo);
         }
-
-        (actualDigit.filter(i => /[.,]/.test(i)).length <= 1) ? setValueTo(actualDigit.join('')) : setValueTo(valueTo);
     }
     
     const formik = useFormik({
@@ -50,16 +65,29 @@ const MainPage = () => {
             fromInput: '',
             toInput: ''
         },
-        onSubmit: (values) => {
-        },
     });
 
     return (
         <div 
-            // id={darkTheme}
-            id='dark'
+            id={darkTheme.theme}
             className='main-wraper' 
         >
+            <div className='intro-wrapper'>
+                <div className='intro-main'>
+                    <p className='intro-title'>Converter</p>
+                    <p className='intro-subtitle'>Check exchange rates</p>
+                </div>
+                <div className='intro-button-pos'>
+                    <IconButton
+                        className='intro-iconbutton'
+                        onClick={() => handleTheme()}
+                    >
+                        <ThemeIcon
+                            icon={darkTheme.icon}
+                        />
+                    </IconButton> 
+                </div>
+            </div>
             <div className='form-wrapper'>
                 <form 
                     className="form-main"
@@ -70,38 +98,33 @@ const MainPage = () => {
                     </div>
                     <NewNumberField 
                         name='fromInput'
-                        type='tel'
                         value={valueFrom}
                         onChange={handleChangeFrom}
                         onBlur={formik.handleBlur}
                     />
+                    <div className="arrow-wrapper">
+                        <AiOutlineArrowDown 
+                            className='arrow-icon'
+                            onClick={() => alert('clicked')}
+                        />
+                    </div>
                     <div className="form-helper-text">
                         <p>To</p>
                     </div>
                     <NewNumberField 
                         name='toInput'
-                        type='text'
                         value={valueTo}
                         onChange={handleChangeTo}
                         onBlur={formik.handleBlur}
                     />  
-                    <Button
-                        type="submit"
-                    >
-                        testing
-                    </Button>
                 </form>
             </div>
         </div>
     );
 }
 
-const NewNumberField = ({ name, type, value, onChange, onBlur }) => {
-    const textFieldStyle = {
-        border: 'none',
-    }
-
-    return (
+const NewNumberField = ({ name, value, onChange, onBlur }) => {
+     return (
         <div className="form-textfield">
             <TextField 
                 name={name}
@@ -117,17 +140,29 @@ const NewNumberField = ({ name, type, value, onChange, onBlur }) => {
                 autoComplete='off'    
                 autoCorrect='off'
 
-                style={textFieldStyle}
                 fullWidth={true}
 
                 inputProps={{ 
                     inputmode:"decimal", 
                 }}
+
                 InputProps={{
-                    disableUnderline: true, // <== added this
-                  }}
+                    disableUnderline: true,
+                }}
             />
     </div>  
+    )
+}
+
+const ThemeIcon = ({ icon }) => {
+    return icon === 'moon' ? (
+        <FaMoon
+            className='intro-icon'
+        />
+    ) : (
+        <BsSunFill
+            className='intro-icon'
+        />
     )
 }
 

@@ -1,17 +1,63 @@
 * {
     margin: 0;
     padding: 0;
+
+    -webkit-transition: background-color 800ms ease-in-out;
+    -ms-transition: background-color 800ms ease-in-out;
+    transition: background-color 800ms ease-in-out;
 }
 
 #default {
-    background: linear-gradient(
-    139.73deg, rgb(229, 253, 255) 0%, rgb(243, 239, 255) 100%);
+    background: #536976;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #292E49, #2a304d);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #292E49, #2a304d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    .intro-wrapper {
+        background-color: rgb(255, 255, 255);
+        .intro-title {
+            color: rgb(40, 13, 95);
+        }
+        .intro-subtitle {
+            color: rgb(122, 110, 170);
+        }
+        .intro-icon {
+            color: rgb(122, 110, 170);
+        }
+    }
+    .form-wrapper {
+        background-color: rgb(255, 255, 255);
+        .form-main {
+            .form-helper-text {
+                color: rgb(40, 13, 95);
+                background: #EEEAF4;
+            }
+            input {
+                color: rgb(40, 13, 95);
+                background: #EEEAF4;
+            }
+        }
+        .arrow-icon {
+            fill: rgb(40, 13, 95);
+        }
+    }
 }
 
 #dark {
     background: linear-gradient(
     139.73deg, rgb(49, 61, 92) 0%, rgb(61, 42, 84) 100%);
 
+    .intro-wrapper {
+        background-color: #27262C;
+        .intro-title {
+            color: rgb(244, 238, 255);
+        }
+        .intro-subtitle {
+            color: rgb(184, 173, 210);
+        }
+        .intro-icon {
+            color: #f4eeff;
+        }
+    }
     .form-wrapper {
         background-color: #27262C;
         .form-main {
@@ -24,46 +70,124 @@
                 background: #372F47;
             }
         }
+        .arrow-icon {
+            fill: rgb(244, 238, 255);
+        }
     }
 }
 
 .main-wraper {
     display: flex;
+    flex-direction: column;
 
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+
+    .intro-wrapper {
+        display: flex;
+
+        justify-content: space-between;
+
+        min-height: 15vh;
+        min-width: 33vw;
+
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+
+        .intro-button-pos {
+            display: flex;
+            align-items: center;
+
+            margin-right: 24px;
+
+            .intro-iconbutton {
+                width: 3.3rem;
+                height: 3.3rem;
+                padding: 0.3rem;
+            }
+            .intro-iconbutton:hover {
+                background-color: rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        .intro-icon {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .intro-main {
+            padding: 24px;
+
+            .intro-title {
+                font-size: 20px;
+                font-weight: 600;
+
+                margin-bottom: 8px;
+            }
+
+            .intro-subtitle {
+                font-size: 14px;
+            }
+        }
+    }
 
     .form-wrapper {
         display: flex;
-        height: 70vh;
-        width: 35vw;
+
+        min-height: 55vh;
+        min-width: 33vw;
 
         justify-content: center;
+
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
     }
 
     .form-main {
-        height: 70vh;
-        width: 30vw;
+        min-height: 40vh;
+        min-width: 30vw;
 
         .form-helper-text {
             margin-bottom: 0;
             margin-top: 1rem;
             padding: 0.75rem 1rem 0px;
 
+            p {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 1rem;
+            }
+
             border-top-right-radius: 16px;
             border-top-left-radius: 16px;
         }
+
         .form-textfield {
             margin: 0;
         }
 
         input {
             padding: 0.75rem 0.75rem 0.75rem 1rem;
+            margin-bottom: 0.75rem;
             border-bottom-right-radius: 16px;
             border-bottom-left-radius: 16px;
+
+            height: 32px;
+            font-weight: 500;
+
+            font-family: 'Kanit', sans-serif;
+        }
+
+        .arrow-wrapper {
+            width: 100%;
+            text-align: center;
+
+            .arrow-icon:hover {
+                cursor: pointer;
+            }
         }
     }
         

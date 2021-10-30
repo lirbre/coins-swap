@@ -34,29 +34,31 @@ const MainPage = () => {
 
     const handleChangeFrom = (e) => {
         let actualDigit = e.target.value.toString().split('');
+        let numberField = actualDigit.filter(i => /[(0-9).,]/.test(i));
 
-        if (actualDigit.length <= 20) {
-            if (actualDigit[actualDigit.length - 1] === ',' || actualDigit[actualDigit.length - 1] === '.') {
-                actualDigit[actualDigit.length - 1] = '.';
-                if (valueFrom === '') {
-                    actualDigit[actualDigit.length - 1] = '0.';
-                }   
+        if (numberField.length <= 20) {
+            if (numberField[numberField.length - 1] === ',' || numberField[numberField.length - 1] === '.') {
+                numberField[numberField.length - 1] = '.';
+                if (valueTo === '') {
+                    numberField[numberField.length - 1] = '0.';
+                }
             }
-            (actualDigit.filter(i => /[.,]/.test(i)).length <= 1) ? setValueFrom(actualDigit.join('')) : setValueFrom(valueFrom);
+            (numberField.filter(i => /[.,]/.test(i)).length <= 1) ? setValueFrom(numberField.join('')) : setValueFrom(valueFrom);
         }
     }
 
     const handleChangeTo = (e) => {
         let actualDigit = e.target.value.toString().split('');
+        let numberField = actualDigit.filter(i => /[(0-9).,]/.test(i));
 
-        if (actualDigit.length <= 20) {
-            if (actualDigit[actualDigit.length - 1] === ',' || actualDigit[actualDigit.length - 1] === '.') {
-                actualDigit[actualDigit.length - 1] = '.';
+        if (numberField.length <= 20) {
+            if (numberField[numberField.length - 1] === ',' || numberField[numberField.length - 1] === '.') {
+                numberField[numberField.length - 1] = '.';
                 if (valueTo === '') {
-                    actualDigit[actualDigit.length - 1] = '0.';
+                    numberField[numberField.length - 1] = '0.';
                 }
             }
-            (actualDigit.filter(i => /[.,]/.test(i)).length <= 1) ? setValueTo(actualDigit.join('')) : setValueTo(valueTo);
+            (numberField.filter(i => /[.,]/.test(i)).length <= 1) ? setValueTo(numberField.join('')) : setValueTo(valueTo);
         }
     }
     

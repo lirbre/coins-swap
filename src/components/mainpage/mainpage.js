@@ -39,7 +39,7 @@ const MainPage = () => {
         if (numberField.length <= 20) {
             if (numberField[numberField.length - 1] === ',' || numberField[numberField.length - 1] === '.') {
                 numberField[numberField.length - 1] = '.';
-                if (valueTo === '') {
+                if (valueFrom === '') {
                     numberField[numberField.length - 1] = '0.';
                 }
             }
@@ -107,7 +107,11 @@ const MainPage = () => {
                     <div className="arrow-wrapper">
                         <AiOutlineArrowDown 
                             className='arrow-icon'
-                            onClick={() => alert('clicked')}
+                            onClick={() => {
+                                let temp = valueFrom;
+                                setValueFrom(valueTo);
+                                setValueTo(temp);
+                            }}
                         />
                     </div>
                     <div className="form-helper-text">

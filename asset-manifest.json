@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/coins-swap/static/css/main.c07a108c.chunk.css",
-    "main.js": "/coins-swap/static/js/main.99e0c9a2.chunk.js",
-    "main.js.map": "/coins-swap/static/js/main.99e0c9a2.chunk.js.map",
-    "runtime-main.js": "/coins-swap/static/js/runtime-main.ded4dc29.js",
-    "runtime-main.js.map": "/coins-swap/static/js/runtime-main.ded4dc29.js.map",
-    "static/js/2.1a8a6995.chunk.js": "/coins-swap/static/js/2.1a8a6995.chunk.js",
-    "static/js/2.1a8a6995.chunk.js.map": "/coins-swap/static/js/2.1a8a6995.chunk.js.map",
+    "main.css": "/coins-swap/static/css/main.b2fc5109.chunk.css",
+    "main.js": "/coins-swap/static/js/main.a1683b81.chunk.js",
+    "main.js.map": "/coins-swap/static/js/main.a1683b81.chunk.js.map",
+    "runtime-main.js": "/coins-swap/static/js/runtime-main.1b544220.js",
+    "runtime-main.js.map": "/coins-swap/static/js/runtime-main.1b544220.js.map",
+    "static/js/2.92e8ce91.chunk.js": "/coins-swap/static/js/2.92e8ce91.chunk.js",
+    "static/js/2.92e8ce91.chunk.js.map": "/coins-swap/static/js/2.92e8ce91.chunk.js.map",
     "index.html": "/coins-swap/index.html",
-    "static/css/main.c07a108c.chunk.css.map": "/coins-swap/static/css/main.c07a108c.chunk.css.map",
-    "static/js/2.1a8a6995.chunk.js.LICENSE.txt": "/coins-swap/static/js/2.1a8a6995.chunk.js.LICENSE.txt"
+    "static/css/main.b2fc5109.chunk.css.map": "/coins-swap/static/css/main.b2fc5109.chunk.css.map",
+    "static/js/2.92e8ce91.chunk.js.LICENSE.txt": "/coins-swap/static/js/2.92e8ce91.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ded4dc29.js",
-    "static/js/2.1a8a6995.chunk.js",
-    "static/css/main.c07a108c.chunk.css",
-    "static/js/main.99e0c9a2.chunk.js"
+    "static/js/runtime-main.1b544220.js",
+    "static/js/2.92e8ce91.chunk.js",
+    "static/css/main.b2fc5109.chunk.css",
+    "static/js/main.a1683b81.chunk.js"
   ]
 }

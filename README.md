@@ -15,4 +15,6 @@
 
   * Por já possuir código, esse projeto foi criado utilizando algumas dependências e Libs do React, então é mais indicado que seja para você que já tem um conhecimento no React e deseja mexer com as APIs.
 
-  * Sintam-se livres para explorar outras Libs e não se prendam a uma determinada API, procurem várias e executem essa "integração" da forma que acharem mais conveniente. O ideal é que seja algo que se encaixe com o que já está rodando no projeto, ou seja, para agregar ao invés de remodelar. 
+  * Sintam-se livres para explorar outras Libs e não se prendam a uma determinada API, procurem várias e executem essa "integração" da forma que acharem mais conveniente. O ideal é que seja algo que se encaixe com o que já está rodando no projeto, ou seja, para agregar ao invés de remodelar por inteiro.
+
+* Por já possuir código, vocês podem ver o projeto funcionando em: [coin swap](https://lirbre.github.io/coins-swap/)

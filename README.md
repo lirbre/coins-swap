@@ -7,7 +7,7 @@
 
   * Sintam-se livres para explorar outras Libs e não se prendam a uma determinada API, procurem várias e executem essa "integração" da forma que acharem mais conveniente. O ideal é que seja algo que se encaixe com o que já está rodando no projeto, ou seja, para agregar no código existente ao invés de remodelar por inteiro.
 
-* Por já possuir código, vocês podem ver o projeto funcionando em: [coin swap](https://lirbre.github.io/coins-swap/).
+* Por já possuir código, vocês podem ver o projeto funcionando em: [coin swap](https://lirbre.github.io/coins-swap-react-challenge/).
 
 ## Como utilizar o código: 
 * Inicialmente, instale com `yarn install` ou `npm install` as dependências. 
